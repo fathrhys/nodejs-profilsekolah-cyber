@@ -1,0 +1,48 @@
+<%- include('partials/header', { pageTitle: 'Initialize', activePage: 'home' }) %>
+
+<!-- HERO SECTION dengan Efek Glitch -->
+<section id="hero">
+    <div class="container">
+        <!-- Teks untuk efek glitch harus ada di atribut data-text -->
+        <h1 data-text="DECODING THE FUTURE">DECODING THE FUTURE</h1>
+        <p class="lead my-4 text-white-50">// We are the architects of the new digital age.</p>
+        <a href="/about" class="btn btn-cyber">ACCESS_INFO</a>
+    </div>
+</section>
+
+<!-- TENTANG KAMI (PREVIEW) -->
+<section id="about-preview" class="section-padded">
+    <div class="container text-center">
+        <h2 class="display-6 mb-4">// System Protocol: Education 2.0</h2>
+        <p class="lead text-muted mx-auto" style="max-width: 800px;">SK-NET_ACADEMY is a nexus where raw data transforms into knowledge. We interface cutting-edge curriculum with neural-enhancement programs to build the next generation of netrunners, technicians, and system architects.</p>
+    </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section id="features" class="section-padded" style="background:var(--color-background);">
+    <div class="container text-center">
+        <h2 class="display-6 mb-5">// Core Features</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card-cyber h-100">
+                    <h4>// Neural Interface</h4>
+                    <p>Direct-to-brain learning modules for accelerated skill acquisition.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card-cyber h-100">
+                    <h4>// Combat Simulation</h4>
+                    <p>Virtual reality training grounds to test skills against rogue AIs and corporate espionage.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card-cyber h-100">
+                    <h4>// Black-Ice Defense</h4>
+                    <p>Master the art of cybersecurity and protect critical data from unauthorized access.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

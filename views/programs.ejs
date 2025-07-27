@@ -1,0 +1,100 @@
+<%- include('partials/header', { pageTitle: '//Available_Programs', activePage: 'program' }) %>
+
+<!-- SECTION 1: JUDUL HALAMAN - FULLSCREEN HERO -->
+<section class="section-fullscreen" style="background-color: var(--color-background);">
+    <div class="container">
+        <h1 class="display-3" data-text="//PROGRAMS_OVERVIEW">//PROGRAMS_OVERVIEW</h1>
+        <p class="lead text-white-50 mt-4">// Select your training protocol. Data modules available for immediate download.</p>
+        <a href="#core-modules" class="btn btn-cyber mt-4">VIEW_MODULES</a>
+    </div>
+</section>
+
+<!-- SECTION 2: CORE MODULES (Dinamis dari Database) - FULLSCREEN -->
+<section id="core-modules" class="section-fullscreen bg-image bg-overlay" style="background-image: url('https://picsum.photos/1920/1080?random=20&blur=3');">
+    <div class="container">
+        <h2 class="display-5 mb-5">// CORE_PROTOCOL_INITIATED</h2>
+        
+        <% if (programs && programs.length > 0) { %>
+            <div class="row justify-content-center g-4">
+                <% programs.forEach(program => { %>
+                    <div class="col-lg-6 col-md-10 mb-4">
+                        <div class="card-cyber h-100">
+                            <!-- Judul program dari database -->
+                            <h4 class="mb-3">// <%= program.title %></h4>
+                            <!-- Deskripsi program dari database -->
+                            <p><%= program.description %></p>
+                            <!-- Gambar acak untuk setiap program, jika tidak ada di DB -->
+                            <img src="<%= program.image_url || 'https://picsum.photos/400/250?random=' + program.id %>" class="img-fluid rounded-3 mt-3" style="object-fit: cover; height: 180px; width: 100%;" alt="<%= program.title %>">
+                            <a href="#" class="btn btn-cyber mt-3 btn-sm">VIEW_DETAILS</a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p class="lead text-white-50">// NO_MODULES_AVAILABLE. AWAITING_DATA_STREAM.</p>
+        <% } %>
+    </div>
+</section>
+
+<!-- SECTION 3: ADVANCED SPECIALIZATIONS (Konten Dummy Baru) - FULLSCREEN -->
+<section class="section-fullscreen" style="background-color: var(--color-background);">
+    <div class="container">
+        <h2 class="display-5 mb-5">// ADVANCED_SPECIALIZATIONS</h2>
+        <div class="row justify-content-center g-4">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card-cyber h-100">
+                    <h4 class="mb-3">// AI_SYNTHESIS</h4>
+                    <p>Learn to design and deploy sentient Artificial Intelligences for various sectors.</p>
+                    <img src="https://picsum.photos/400/250?random=21" class="img-fluid rounded-3 mt-3" style="object-fit: cover; height: 180px; width: 100%;" alt="AI Synthesis">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card-cyber h-100">
+                    <h4 class="mb-3">// URBEX_DATA_HARVEST</h4>
+                    <p>Master the art of navigating abandoned sectors for valuable data remnants and tech salvage.</p>
+                    <img src="https://picsum.photos/400/250?random=22" class="img-fluid rounded-3 mt-3" style="object-fit: cover; height: 180px; width: 100%;" alt="Urbex Data Harvest">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card-cyber h-100">
+                    <h4 class="mb-3">// CYBER_AUGMENTATION</h4>
+                    <p>Explore bio-engineering and prosthetic integration for enhanced human capabilities.</p>
+                    <img src="https://picsum.photos/400/250?random=23" class="img-fluid rounded-3 mt-3" style="object-fit: cover; height: 180px; width: 100%;" alt="Cyber Augmentation">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: ENROLLMENT PROTOCOL - FULLSCREEN -->
+<section class="section-fullscreen bg-image bg-overlay" style="background-image: url('https://picsum.photos/1920/1080?random=24&blur=4');">
+    <div class="container">
+        <h2 class="display-5 mb-4">// INITIATE_ENROLLMENT_PROTOCOL</h2>
+        <p class="lead text-white-50 mx-auto" style="max-width: 800px;">Begin your journey. Access the secure registration portal and upload your credentials. Be warned: not all minds are ready for the truth.</p>
+        <a href="/contact" class="btn btn-cyber mt-4">BEGIN_REGISTRATION</a>
+    </div>
+</section>
+
+<!-- SECTION 5: STUDENT ACHIEVEMENTS / NETWORK STATS - FULLSCREEN -->
+<section class="section-fullscreen" style="background-color: var(--color-surface);">
+    <div class="container">
+        <h2 class="display-5 mb-5">// NETWORK_STATS // PERFORMANCE_LOGS</h2>
+        <div class="row justify-content-center text-center">
+            <div class="col-md-4 mb-4">
+                <h3 class="display-4 fw-bold text-white">// 98%</h3>
+                <p class="text-white-50">DEPLOYMENT_SUCCESS_RATE</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h3 class="display-4 fw-bold text-white">// 100+</h3>
+                <p class="text-white-50">ACTIVE_NETRUNNERS</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h3 class="display-4 fw-bold text-white">// 500TB</h3>
+                <p class="text-white-50">DATA_SECURED</p>
+            </div>
+        </div>
+        <p class="text-white-50 mt-5 mx-auto" style="max-width: 700px;">Our operatives consistently outperform expectations, securing vital data streams and innovating in the most challenging environments.</p>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

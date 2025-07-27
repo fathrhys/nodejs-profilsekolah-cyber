@@ -1,0 +1,200 @@
+/* public/css/style.css - CYBERPUNK THEME */
+
+/* === FONT & ROOT VARIABLES === */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;600&display=swap');
+
+:root {
+    --color-background: #0a0a0a; /* Deep black */
+    --color-surface: #141414;    /* Dark surface for cards */
+    --color-primary: #00ffff;    /* Electric Cyan */
+    --color-secondary: #ff00ff;  /* Neon Magenta */
+    --color-text: #e0e0e0;       /* Off-white text */
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+}
+
+/* === BASE & BODY STYLING === */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    background-image:
+        linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    text-shadow: 0 0 5px var(--color-primary), 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* === NAVBAR === */
+.navbar-custom {
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    padding: 0.5rem 0;
+}
+
+.navbar-custom .navbar-brand .logo-text,
+.navbar-custom .nav-link {
+    color: var(--color-text);
+    font-family: var(--font-heading);
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+    color: var(--color-primary);
+    text-shadow: 0 0 8px var(--color-primary);
+}
+
+/* Logo SVG Styling */
+.navbar-brand svg {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+.navbar-brand:hover svg {
+    transform: rotate(180deg);
+}
+
+/* === HERO SECTION === */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--color-background);
+}
+
+#hero h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    position: relative;
+    animation: glitch 1.5s linear infinite;
+}
+
+/* === GLITCH ANIMATION === */
+@keyframes glitch {
+  2%,64% { transform: translate(2px,0) skew(0deg); }
+  4%,60% { transform: translate(-2px,0) skew(0deg); }
+  62% { transform: translate(0,0) skew(5deg); }
+}
+
+#hero h1:before,
+#hero h1:after,
+.section-fullscreen h1:before,
+.section-fullscreen h1:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#hero h1:before,
+.section-fullscreen h1:before {
+  animation: glitch-top 1.5s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+@keyframes glitch-top {
+  2%,64% { transform: translate(2px,-2px); }
+  4%,60% { transform: translate(-2px,2px); }
+}
+#hero h1:after,
+.section-fullscreen h1:after {
+  animation: glitch-bottom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+@keyframes glitch-bottom {
+  2%,64% { transform: translate(-2px,0); }
+  4%,60% { transform: translate(-2px,0); }
+}
+
+/* === FULLSCREEN SECTION === */
+.section-fullscreen {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    position: relative;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+}
+.section-fullscreen h1 { position: relative; } /* for glitch effect */
+
+/* Helper untuk seksi dengan background gambar */
+.bg-image {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Lapisan overlay gelap untuk teks di atas gambar */
+.bg-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(10, 10, 10, 0.7);
+    z-index: 1;
+}
+.section-fullscreen > .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* === CARD === */
+.card-cyber {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    padding: 2rem;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+.card-cyber:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+}
+.card-cyber h4 {
+    color: var(--color-secondary);
+    text-shadow: 0 0 5px var(--color-secondary);
+}
+
+/* === BUTTON STYLING === */
+.btn-cyber {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    padding: 10px 25px;
+    text-transform: uppercase;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 90% 100%, 0 100%, 0% 25%);
+    transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
+}
+.btn-cyber:hover {
+    background: var(--color-primary);
+    color: var(--color-background);
+    text-shadow: none;
+    box-shadow: 0 0 20px var(--color-primary);
+}
+
+/* === FOOTER === */
+.footer {
+    background: #000;
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+}
